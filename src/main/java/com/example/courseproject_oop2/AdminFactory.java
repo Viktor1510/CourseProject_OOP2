@@ -1,7 +1,6 @@
 package com.example.courseproject_oop2;
 
 public class AdminFactory implements UserAbstractFactory {
-
     private String username;
     private String password;
 

@@ -1,9 +1,11 @@
 package com.example.courseproject_oop2;
 
+import java.util.UUID;
+
 public class Admin extends User {
 
-    public Admin(String username, String password, Role role) {
-        super(username, password, role);
+    public Admin(UUID id, String username, String password, Role role) {
+        super(id, username, password, role);
     }
 
     @Override
