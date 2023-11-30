@@ -1,15 +1,13 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import jakarta.persistence.*;
-
-import java.util.UUID;
 
 @Entity
 @Table(name="Rating")
 public class Rating {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID ratingId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long ratingId;
     @ManyToOne
     private User user;
     private Integer ratingValue;
@@ -23,7 +21,7 @@ public class Rating {
 
     }
 
-    public UUID getRatingId() {
+    public Long getRatingId() {
         return ratingId;
     }
 

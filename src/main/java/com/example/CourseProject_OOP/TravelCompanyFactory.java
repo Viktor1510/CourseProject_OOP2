@@ -1,15 +1,10 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import jakarta.persistence.*;
 
-import java.util.UUID;
 
-@Entity
-@Table(name="TravelCompany")
 public class TravelCompanyFactory implements UserAbstractFactory{
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+
     private String username;
     private String password;
     @ManyToOne

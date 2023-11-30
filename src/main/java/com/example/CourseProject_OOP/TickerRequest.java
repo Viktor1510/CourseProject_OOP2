@@ -1,15 +1,13 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import jakarta.persistence.*;
-
-import java.util.UUID;
 
 @Entity
 @Table(name="TicketRequest")
 public class TickerRequest {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID requestId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long requestId;
     @ManyToOne
     private  Distributor distributor;
     @ManyToOne
@@ -27,7 +25,7 @@ public class TickerRequest {
 
     }
 
-    public UUID getRequestId() {
+    public Long getRequestId() {
         return requestId;
     }
 

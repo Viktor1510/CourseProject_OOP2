@@ -1,4 +1,5 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
+
 
 public class Admin extends User{
 

@@ -1,15 +1,13 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import jakarta.persistence.*;
-
-import java.util.UUID;
 
 @Entity
 @Table(name = "Client")
 public class Client {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID clientId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long clientId;
     private String name;
     private double fare;
 
@@ -20,10 +18,6 @@ public class Client {
 
     public Client() {
 
-    }
-
-    public UUID getClientId() {
-        return clientId;
     }
 
     public String getName() {

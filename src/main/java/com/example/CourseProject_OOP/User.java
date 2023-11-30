@@ -1,19 +1,16 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import jakarta.persistence.*;
 
-import java.util.UUID;
-
 
 @Entity
-@Table(name = "User")
-
 public abstract class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String username;
     private String password;
+    @Enumerated(EnumType.STRING)
     private Role role;
 
 

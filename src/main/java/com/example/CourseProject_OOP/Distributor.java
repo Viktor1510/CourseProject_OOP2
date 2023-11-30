@@ -1,17 +1,16 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import jakarta.persistence.*;
 
 import java.util.Objects;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
-@Table(name="Distributor")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Distributor extends User{
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID distributorId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long distributorId;
     @OneToMany
     private Set<TravelCompany> companies;
 
@@ -21,6 +20,10 @@ public class Distributor extends User{
 
     public Distributor() {
 
+    }
+
+    public Long getDistributorId() {
+        return distributorId;
     }
 
     @Override

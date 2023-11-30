@@ -1,4 +1,4 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

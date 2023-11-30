@@ -1,6 +1,7 @@
-module com.example.courseproject_oop2 {
+module com.example.CourseProject_OOP {
     requires javafx.controls;
     requires javafx.fxml;
+
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
@@ -8,7 +9,7 @@ module com.example.courseproject_oop2 {
 
 
 
-    opens com.example.courseproject_oop2 to javafx.fxml;
-    exports com.example.courseproject_oop2;
+    opens com.example.CourseProject_OOP to javafx.fxml;
+    exports com.example.CourseProject_OOP;
 
 }

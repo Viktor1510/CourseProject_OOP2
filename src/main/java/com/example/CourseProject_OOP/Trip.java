@@ -1,4 +1,4 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import jakarta.persistence.*;
 
@@ -9,7 +9,7 @@ import java.util.UUID;
 @Table(name = "Trip")
 public class Trip {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID tripId;
     @ManyToOne
     private TravelCompany travelCompany;

@@ -1,21 +1,23 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import jakarta.persistence.*;
 
-import java.util.UUID;
-
 @Entity
-@Table(name="TravelCompany")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class TravelCompany extends User{
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID companyId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long companyId;
     public TravelCompany(String username, String password, Role role) {
         super(username, password, role);
     }
 
     public TravelCompany() {
 
+    }
+
+    public Long getCompanyId() {
+        return companyId;
     }
 
     @Override

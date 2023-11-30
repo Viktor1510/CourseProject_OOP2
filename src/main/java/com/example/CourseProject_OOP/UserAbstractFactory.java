@@ -1,4 +1,4 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 public interface UserAbstractFactory {
     User createUser(String username,String password);

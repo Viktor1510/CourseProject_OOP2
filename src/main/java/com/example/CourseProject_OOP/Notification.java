@@ -1,16 +1,15 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name="Notification")
 public class Notification {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID notificationId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long notificationId;
     @ManyToOne
     private User user;
 
@@ -31,7 +30,7 @@ public class Notification {
     }
 
 
-    public UUID getNotificationId() {
+    public Long getNotificationId() {
         return notificationId;
     }
 

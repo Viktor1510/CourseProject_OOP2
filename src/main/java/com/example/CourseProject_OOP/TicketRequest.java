@@ -1,15 +1,13 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import jakarta.persistence.*;
-
-import java.util.UUID;
 
 @Entity
 @Table(name="ticketRequests")
 public class TicketRequest {
     @Id
-    @GeneratedValue(strategy= GenerationType.UUID)
-    private UUID requestId;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long requestId;
 
     @ManyToOne
     private Distributor distributor;
@@ -22,6 +20,23 @@ public class TicketRequest {
         this.distributor = distributor;
         this.trip = trip;
         this.status = status;
+    }
+
+
+    public TicketRequest() {
+
+    }
+
+    public Long getRequestId() {
+        return requestId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Trip getTrip() {
+        return trip;
     }
 
 

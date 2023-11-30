@@ -1,16 +1,15 @@
-package com.example.courseproject_oop2;
+package com.example.CourseProject_OOP;
 
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "Ticket")
 public class Ticket {
     @Id
-    @GeneratedValue(strategy =GenerationType.UUID)
-    private UUID ticketId;
+    @GeneratedValue(strategy =GenerationType.AUTO)
+    private Long ticketId;
     @ManyToOne
     private Cashier cashier;
     @ManyToOne
@@ -34,7 +33,7 @@ public class Ticket {
 
     }
 
-    public UUID getTicketId() {
+    public Long getTicketId() {
         return ticketId;
     }
 
