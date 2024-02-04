@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database connection settings for MySQL -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://your_mysql_server:3306/OOP_Server</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">oopbaza</property>
+
+        <!-- JDBC connection pool settings -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+
+        <!-- Specify dialect for MySQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup (optional) -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Mention annotated class -->
+        <mapping class="com.example.CourseProject_OOP.database.entities.ClientProfile"/>
+        <mapping class="com.example.CourseProject_OOP.database.entities.Notification"/>
+        <mapping class="com.example.CourseProject_OOP.database.entities.Rating"/>
+        <mapping class="com.example.CourseProject_OOP.database.entities.Ticket"/>
+        <mapping class="com.example.CourseProject_OOP.database.entities.Travel"/>
+        <mapping class="com.example.CourseProject_OOP.database.entities.TravelForm"/>
+        <mapping class="com.example.CourseProject_OOP.database.entities.TravelRequest"/>
+        <mapping class="com.example.CourseProject_OOP.database.entities.User"/>
+
+    </session-factory>
+</hibernate-configuration>
