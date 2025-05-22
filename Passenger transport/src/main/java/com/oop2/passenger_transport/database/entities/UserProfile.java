@@ -28,9 +28,9 @@ public class UserProfile {
     private Double rating;
 
     @OneToMany
-    private List<TicketSale> ticketSales;
+    private List<Ticket> tickets;
 
     @OneToMany
-    private List<Ticket> tickets;
+    private List<Notification> notifications;
 }
 

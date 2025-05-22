@@ -4,6 +4,8 @@ import com.oop2.passenger_transport.database.enums.Ratings;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @Builder
@@ -13,83 +15,57 @@ import lombok.*;
 @Table(name = "user_profile_ratings")
 public class UserProfileRating {
 
-    /**
-     * The unique identifier for the reader rating.
-     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "rating_id")
     private Long id;
 
-    /**
-     * The overall rating value represented by an enumeration.
-     */
-    @Enumerated(EnumType.STRING)
-    @Column(name = "rating", nullable = false)
-    private Ratings rating;
+    // Профилът, който дава оценката (напр. касиер, разпространител)
+    @ManyToOne
+    private UserProfile rater;
 
-    /**
-     * The coefficient influencing the rating.
-     */
-    @Column(name = "coefficient", nullable = false)
-    private int coefficient;
+    // Крайната цел на рейтинга – клиентът
+    @ManyToOne
+    private User ratedUser;
 
-    /**
-     * The current calculated value of the reader's rating.
-     */
-    @Column(name = "current_value", nullable = false)
-    private double currentValue;
+    @Column(nullable = false)
+    private Double rating;
 
-    /**
-     * Increases the coefficient and adjusts the current value based on certain conditions.
-     */
-    public void increase() {
-        coefficient++;
+    @Column(nullable = false)
+    private Double weightCoefficient;
 
-        if (currentValue == -1) {
-            currentValue = 3;
-        } else {
-            if (coefficient % 5 == 0 && currentValue < 5) {
-                currentValue++;
-            }
+    @Column(nullable = false)
+    private LocalDateTime ratedAt;
+
+    // Логика за автоматично изчисление на коефициент (примерна, можеш да я замениш)
+    @PrePersist
+    public void prePersist() {
+        this.ratedAt = LocalDateTime.now();
+        this.weightCoefficient = calculateWeightCoefficient();
+    }
+
+    private double calculateWeightCoefficient() {
+        double base = 1.0;
+
+        if (rater == null) return base;
+
+        boolean highHonorarium = rater.getHonorarium() != null && rater.getHonorarium() > 1000;
+        boolean activeSales = rater.getTickets() != null && rater.getTickets().size() > 10;
+
+        if (highHonorarium && activeSales) {
+            return 3.0;
+        } else if (highHonorarium) {
+            return 2.0;
+        } else if (activeSales) {
+            return 1.0;
         }
+
+        return base;
     }
 
-    /**
-     * Decreases the coefficient and adjusts the current value based on certain conditions.
-     */
-    public void decrease() {
-        coefficient--;
 
-        if (currentValue == -1) {
-            currentValue = 2;
-        } else {
-            if (Math.abs(coefficient) % 5 == 0 && currentValue > 0) {
-                currentValue--;
-            }
-        }
-    }
 
-    /**
-     * Updates the overall rating based on the current calculated value.
-     *
-     * @throws IllegalStateException if the current value does not match any valid rating.
-     */
-    public void updateRating() throws IllegalStateException {
-        for (Ratings rating : Ratings.values()) {
-            if (rating.getValue() == currentValue) {
-                this.rating = rating;
-            }
-        }
-    }
 
-    /**
-     * Overrides the default {@code toString()} method to provide a string representation of the reader's rating.
-     *
-     * @return A string representation of the reader's rating.
-     */
-    @Override
-    public String toString() {
-        return rating.getDisplayValue();
-    }
+
 }
+
+
