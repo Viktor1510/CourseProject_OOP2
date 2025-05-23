@@ -49,7 +49,7 @@ public class UserRepository extends AbstractRepository<User> {
         }
     }
 
-    // Може да добавиш и други специфични заявки тук...
+
 
     /**
      * Get a new EntityManager instance.

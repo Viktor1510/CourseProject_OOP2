@@ -15,9 +15,7 @@ public class UserProfileRatingRepository extends AbstractRepository<UserProfileR
         return UserProfileRating.class;
     }
 
-    /**
-     * Намира всички UserProfileRating с дадена стойност на рейтинга.
-     */
+
     public List<UserProfileRating> findByRating(Ratings rating) {
         EntityManager em = emf.createEntityManager();
         try {

@@ -1,6 +1,5 @@
 package com.oop2.passenger_transport.database.entities;
 
-import com.oop2.passenger_transport.database.enums.Ratings;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,11 +18,10 @@ public class UserProfileRating {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Профилът, който дава оценката (напр. касиер, разпространител)
     @ManyToOne
     private UserProfile rater;
 
-    // Крайната цел на рейтинга – клиентът
+
     @ManyToOne
     private User ratedUser;
 
@@ -36,7 +34,7 @@ public class UserProfileRating {
     @Column(nullable = false)
     private LocalDateTime ratedAt;
 
-    // Логика за автоматично изчисление на коефициент (примерна, можеш да я замениш)
+
     @PrePersist
     public void prePersist() {
         this.ratedAt = LocalDateTime.now();

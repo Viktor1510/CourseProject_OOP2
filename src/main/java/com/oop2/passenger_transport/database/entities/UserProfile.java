@@ -21,11 +21,9 @@ public class UserProfile {
     @JoinColumn(name = "user_id")
     private User user;
 
+
     @Column(name = "honorarium")
     private Double honorarium;
-
-    @Column(name = "rating")
-    private Double rating;
 
     @OneToMany
     private List<Ticket> tickets;

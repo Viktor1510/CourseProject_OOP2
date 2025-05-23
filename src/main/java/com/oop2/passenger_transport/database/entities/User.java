@@ -57,6 +57,7 @@ public class User  {
     @Column(name = "role", length = 16, nullable = false)
     private Role role;
 
+    private Double honorarium;
     /**
      * The list of event notifications associated with the user.
      */

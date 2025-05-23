@@ -16,7 +16,7 @@ public class TravelTripRepository extends AbstractRepository<TravelTrip> {
         return TravelTrip.class;
     }
 
-    // Намира пътувания по организатор (пътническа компания)
+
     public List<TravelTrip> findByOrganizer(User organizer) {
         EntityManager em = emf.createEntityManager();
         try {
@@ -29,7 +29,7 @@ public class TravelTripRepository extends AbstractRepository<TravelTrip> {
         }
     }
 
-    // Намира пътувания по дестинация
+
     public List<TravelTrip> findByDestination(String destination) {
         EntityManager em = emf.createEntityManager();
         try {
@@ -42,7 +42,7 @@ public class TravelTripRepository extends AbstractRepository<TravelTrip> {
         }
     }
 
-    // Намира пътувания за даден период (между две дати)
+
     public List<TravelTrip> findByDepartureBetween(LocalDateTime start, LocalDateTime end) {
         EntityManager em = emf.createEntityManager();
         try {

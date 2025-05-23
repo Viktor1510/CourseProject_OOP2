@@ -20,11 +20,6 @@ public enum Role {
     ADMIN("Admin"),
 
     /**
-     * Operator role with limited access and authority.
-     */
-    OPERATOR("Distributor"),
-
-    /**
      * Cashier role with limited access and authority.
      */
     CASHIER("Cashier"),
