@@ -1,4 +1,4 @@
-module com.oop2.passenger_transport {
+module com.oop.passenger_transport {
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
@@ -6,8 +6,9 @@ module com.oop2.passenger_transport {
     requires jakarta.persistence;
     requires org.slf4j;
     requires org.hibernate.orm.core;
-    requires bcrypt;
+    requires static jbcrypt;
 
-    opens com.oop2.passenger_transport to javafx.fxml;
-    exports com.oop2.passenger_transport;
+
+    opens com.oop.passenger_transport to javafx.fxml;
+    exports com.oop.passenger_transport;
 }

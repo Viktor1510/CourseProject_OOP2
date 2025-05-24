@@ -17,14 +17,13 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
 
-        <!-- Мапни твоите entity класове -->
-        <mapping class="com.oop2.passenger_transport.database.entities.User"/>
-        <mapping class="com.oop2.passenger_transport.database.entities.UserProfile"/>
-        <mapping class="com.oop2.passenger_transport.database.entities.UserProfileRating"/>
-        <mapping class="com.oop2.passenger_transport.database.entities.Ticket"/>
-        <mapping class="com.oop2.passenger_transport.database.entities.TravelTrip"/>
-        <mapping class="com.oop2.passenger_transport.database.entities.Notification"/>
-        <mapping class="com.oop2.passenger_transport.database.entities.TicketRequest"/>
+        <mapping class="com.oop.passenger_transport.database.entities.User"/>
+        <mapping class="com.oop.passenger_transport.database.entities.UserProfile"/>
+        <mapping class="com.oop.passenger_transport.database.entities.Ticket"/>
+        <mapping class="com.oop.passenger_transport.database.entities.TravelTrip"/>
+        <mapping class="com.oop.passenger_transport.database.entities.Notification"/>
+        <mapping class="com.oop.passenger_transport.database.entities.TicketRequest"/>
+        <mapping class="com.oop.passenger_transport.database.entities.TicketForm"/>
 
     </session-factory>
 </hibernate-configuration>
