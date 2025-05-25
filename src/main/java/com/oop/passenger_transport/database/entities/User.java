@@ -4,6 +4,8 @@ import com.oop.passenger_transport.database.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -64,6 +66,7 @@ public class User  {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Notification> eventNotifications;
 
+    private LocalDateTime createdAt;
     /**
      * Overrides the default {@code toString()} method to provide a formatted string representation
      * of the user's information.

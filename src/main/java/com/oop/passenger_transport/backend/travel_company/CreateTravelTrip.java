@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 public class CreateTravelTrip {
 
@@ -30,6 +32,7 @@ public class CreateTravelTrip {
                 .seatCount(seatCount)
                 .transportType(transportType.trim())
                 .ticketLimit(ticketLimit)
+                .createdAt(LocalDateTime.now())
                 .build();
 
         tripRepository.save(trip);

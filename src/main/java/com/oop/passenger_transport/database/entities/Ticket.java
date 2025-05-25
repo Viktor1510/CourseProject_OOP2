@@ -3,6 +3,7 @@ package com.oop.passenger_transport.database.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -51,5 +52,7 @@ public class Ticket {
 
     private Integer saleCount;
 
+    @Column(nullable = false,updatable = false)
+    private LocalDateTime createdAt;
 }
 

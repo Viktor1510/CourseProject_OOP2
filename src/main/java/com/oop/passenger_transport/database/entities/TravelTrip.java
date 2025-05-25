@@ -3,6 +3,9 @@ package com.oop.passenger_transport.database.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "travel_trips")
 @Getter
@@ -25,8 +28,11 @@ public class TravelTrip {
 
     private String transportType;
 
+    @Column(nullable = false,updatable = false)
+    private LocalDateTime createdAt;
 
     @Column(name = "ticket_limit_per_user")
     private int ticketLimit;
+
 }
 

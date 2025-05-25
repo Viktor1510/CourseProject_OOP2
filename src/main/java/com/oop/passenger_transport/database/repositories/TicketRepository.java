@@ -5,6 +5,7 @@ import com.oop.passenger_transport.database.entities.Ticket;
 import com.oop.passenger_transport.database.entities.TravelTrip;
 import com.oop.passenger_transport.database.entities.User;
 import com.oop.passenger_transport.database.entities.UserProfile;
+import com.oop.passenger_transport.database.enums.RequestStatus;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
@@ -41,6 +42,24 @@ public class TicketRepository extends AbstractRepository<Ticket> {
             em.close();
         }
     }
+
+    public List<Ticket> findByStatusAndPeriod(RequestStatus status, LocalDateTime from, LocalDateTime to) {
+        EntityManager em = emf.createEntityManager();
+        try {
+
+            TypedQuery<Ticket> query = em.createQuery(
+                    "SELECT t FROM Ticket t WHERE t.status = :status AND t.saleDate BETWEEN :from AND :to ORDER BY t.saleDate DESC",
+                    Ticket.class
+            );
+            query.setParameter("status", status);
+            query.setParameter("from", from);
+            query.setParameter("to", to);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
 
     public List<Ticket> findByTrip(TravelTrip trip) {
         EntityManager em = emf.createEntityManager();

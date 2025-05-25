@@ -10,6 +10,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDateTime;
+
 
 @AllArgsConstructor
 public class AdminCreateDistributor {
@@ -34,6 +36,7 @@ public class AdminCreateDistributor {
                 .password(hashedPassword)
                 .honorarium(honorarium)
                 .role(Role.DISTRIBUTOR)
+                .createdAt(LocalDateTime.now())
                 .build();
 
         userRepository.save(user);

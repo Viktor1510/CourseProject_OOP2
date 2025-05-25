@@ -3,6 +3,7 @@ package com.oop.passenger_transport.database.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -66,6 +67,8 @@ public class Notification {
      *
      * @return A string representation of the event notification.
      */
+    @Column(nullable = false,updatable = false)
+    private Instant createdAt;
     @Override
     public String toString() {
         return timestamp.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")) + " " + message;

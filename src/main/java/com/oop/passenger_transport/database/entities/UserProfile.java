@@ -3,6 +3,8 @@ package com.oop.passenger_transport.database.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Instant;
+
 @Entity
 @Table(name = "user_profiles")
 @Getter
@@ -29,6 +31,9 @@ public class UserProfile {
 
     @Column(name = "honorarium")
     private Double honorarium;
+
+    @Column(nullable = false,updatable = false)
+    private Instant createdAt;
 
 }
 

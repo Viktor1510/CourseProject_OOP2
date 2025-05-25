@@ -45,6 +45,7 @@ public class CreateTicket {
                     .departure(departure)
                     .arrival(arrival)
                     .saleCount(saleCount)
+                    .createdAt(LocalDateTime.now())
                     .build();
             ticketRepository.save(ticket);
             logger.info("Ticket saved successfully!");

@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 public class CreateTicketRequest {
 
     private static final Logger logger = LoggerFactory.getLogger(CreateTicketRequest.class);
-    private final TicketRequestRepository ticketRequestRepository = new TicketRequestRepository();
+    private final TicketRequestRepository ticketRequestRepository;
 
     public void submitRequest(User distributor, TravelTrip trip) {
         try {

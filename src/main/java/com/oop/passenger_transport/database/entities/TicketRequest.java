@@ -4,6 +4,8 @@ import com.oop.passenger_transport.database.enums.RequestStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Instant;
+
 @Entity
 @Table(name = "ticket_requests")
 @Getter
@@ -26,4 +28,7 @@ public class TicketRequest {
 
     @Enumerated(EnumType.STRING)
     private RequestStatus status; // PENDING, APPROVED, REJECTED
+
+    @Column(nullable = false,updatable = false)
+    private Instant createdAt;
 }

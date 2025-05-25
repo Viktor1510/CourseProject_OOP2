@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 public class AdminCreateTravelCompany {
     private final UserRepository userRepository;
@@ -34,6 +36,7 @@ public class AdminCreateTravelCompany {
                 .password(hashedPassword)
                 .honorarium(honorarium)
                 .role(Role.TRAVELCOMPANY)
+                .createdAt(LocalDateTime.now())
                 .build();
 
         userRepository.save(user);
